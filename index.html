@@ -7,9 +7,6 @@
 	</head>
 	<body>
 		<script src="three.js"></script>
-		<script type="module">
-import { OrbitControls } from '/OrbitControls.js'
-</script>
 		<script>
 const scene = new THREE.Scene();
 const fov = 45;
@@ -22,9 +19,6 @@ camera.position.set(0, 10, 20);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
-const controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 5, 0);
-controls.update();
 const planeSize = 40;
  
 const loader = new THREE.TextureLoader();
