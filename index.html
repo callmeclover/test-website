@@ -39,14 +39,15 @@ const geometry2 = new THREE.BoxGeometry( 1, 1, 1 );
 function animate() {
 				requestAnimationFrame( animate );
 
-				cube.rotation.x += 0.001;
-                cube.rotation.z += 0.001;
-				cube.rotation.y += 0.001;
-                cube1.rotation.z += 0.0001;
-                cube1.rotation.y += 0.0001;
-    cube2.rotation.x += 0.00001;
-    cube2.rotation.z += 0.00001;
-				cube2.rotation.y += 0.00001;
+				cube.rotation.x += 0.005;
+                cube.rotation.z += 0.005;
+				cube.rotation.y -= 0.005;
+                cube1.rotation.z -= 0.0005;
+                cube1.rotation.x += 0.0005
+                cube1.rotation.y += 0.0005;
+    cube2.rotation.x -= 0.00005;
+    cube2.rotation.z += 0.00005;
+				cube2.rotation.y += 0.00005;
 
 				renderer.render( scene, camera );
 			};
