@@ -20,31 +20,11 @@ camera.position.set(0, 10, 20);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
-const planeSize = 40;
- 
-const loader = new THREE.TextureLoader();
-const texture = loader.load('checker.png');
-texture.wrapS = THREE.RepeatWrapping;
-texture.wrapT = THREE.RepeatWrapping;
-texture.magFilter = THREE.NearestFilter;
-const repeats = planeSize / 2;
-texture.repeat.set(repeats, repeats);
+const speed0 = 0;
+const speed1 = 0;
+const speed2 = 0;
 
-const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
-const planeMat = new THREE.MeshPhongMaterial({
-  map: texture,
-  side: THREE.DoubleSide,
-});
-const mesh = new THREE.Mesh(planeGeo, planeMat);
-mesh.rotation.x = Math.PI * -.5;
-scene.add(mesh);
-
-const color = 0xFFFFFF;
-const intensity = 1;
-const light = new THREE.AmbientLight(color, intensity);
-scene.add(light);
-
-class ColorGUIHelper {
+class SpeedGUIHelper {
   constructor(object, prop) {
     this.object = object;
     this.prop = prop;
@@ -58,9 +38,9 @@ class ColorGUIHelper {
 }
 
 const gui = new dat.GUI();
-gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
-gui.add(light, 'intensity', 0, 2, 0.01);
-
+gui.add(speed0, 'speed 0', 0, 1, 0.01);
+gui.add(speed0, 'speed 0', 0, 1, 0.01);
+gui.add(speed0, 'speed 0', 0, 1, 0.01);
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 000333000 } );
