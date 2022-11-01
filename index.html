@@ -15,7 +15,7 @@ const aspect = 2;  // the canvas default
 const near = 0.1;
 const far = 100;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.set(0, 10, 20);
+camera.position.set(0, 1, 0);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -39,8 +39,8 @@ class SpeedGUIHelper {
 
 const gui = new dat.GUI();
 gui.add(speed0, 'speed 0', 0, 1, 0.01);
-gui.add(speed0, 'speed 0', 0, 1, 0.01);
-gui.add(speed0, 'speed 0', 0, 1, 0.01);
+gui.add(speed0, 'speed 1', 0, 1, 0.01);
+gui.add(speed0, 'speed 2', 0, 1, 0.01);
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 000333000 } );
@@ -60,15 +60,15 @@ const geometry2 = new THREE.BoxGeometry( 1, 1, 1 );
 function animate() {
 				requestAnimationFrame( animate );
 
-				cube.rotation.x += 0.005;
-                cube.rotation.z += 0.005;
-				cube.rotation.y -= 0.005;
-                cube1.rotation.z -= 0.0005;
-                cube1.rotation.x += 0.0005
-                cube1.rotation.y += 0.0005;
-    cube2.rotation.x -= 0.00005;
-    cube2.rotation.z += 0.00005;
-				cube2.rotation.y += 0.00005;
+				cube.rotation.x += speed0;
+                cube.rotation.z += speed0;
+				cube.rotation.y -= speed0;
+                cube1.rotation.z -= speed1;
+                cube1.rotation.x += speed1;
+                cube1.rotation.y += speed1;
+    cube2.rotation.x = speed2;
+    cube2.rotation.z += speed2;
+				cube2.rotation.y += speed2;
 
 				renderer.render( scene, camera );
 			};
