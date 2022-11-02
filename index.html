@@ -20,55 +20,45 @@ camera.position.set(0, 1, 0);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
-const speed0 = 0;
-const speed1 = 0;
-const speed2 = 0;
 
-class SpeedGUIHelper {
-  constructor(object, prop) {
-    this.object = object;
-    this.prop = prop;
-  }
-  get value() {
-    return `#${this.object[this.prop].getHexString()}`;
-  }
-  set value(hexString) {
-    this.object[this.prop].set(hexString);
-  }
-}
+ gspeed = {
+        speedR:0.005,
+        speedG:0.0005,
+	speedB:0.00005 
+};
 
 const gui = new dat.GUI();
-gui.add(speed0, 'speed 0', 0, 1, 0.01);
-gui.add(speed0, 'speed 1', 0, 1, 0.01);
-gui.add(speed0, 'speed 2', 0, 1, 0.01);
+gui.add(gspeed, 'speedR', 0, 1);
+gui.add(gspeed, 'speedG', 0, 1);
+gui.add(gspeed, 'speedB', 0, 1);
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-			const material = new THREE.MeshBasicMaterial( { color: 000333000 } );
+			const material = new THREE.MeshBasicMaterial( { color: 333000000 } );
 			const cube = new THREE.Mesh( geometry, material );
 			scene.add( cube );
 
 const geometry1 = new THREE.BoxGeometry( 1, 1, 1 );
-			const material1 = new THREE.MeshBasicMaterial( { color: 000000222 } );
+			const material1 = new THREE.MeshBasicMaterial( { color: 000333000 } );
 			const cube1 = new THREE.Mesh( geometry1, material1 );
 			scene.add( cube1 );
 
 const geometry2 = new THREE.BoxGeometry( 1, 1, 1 );
-			const material2 = new THREE.MeshBasicMaterial( { color: 333000000 } );
+			const material2 = new THREE.MeshBasicMaterial( { color: 000000222 } );
 			const cube2 = new THREE.Mesh( geometry2, material2 );
 			scene.add( cube2 );
 
 function animate() {
 				requestAnimationFrame( animate );
 
-				cube.rotation.x += speed0;
-                cube.rotation.z += speed0;
-				cube.rotation.y -= speed0;
-                cube1.rotation.z -= speed1;
-                cube1.rotation.x += speed1;
-                cube1.rotation.y += speed1;
-    cube2.rotation.x = speed2;
-    cube2.rotation.z += speed2;
-				cube2.rotation.y += speed2;
+				cube.rotation.x += gspeed.speedR;
+                cube.rotation.z += gspeed.speedR;
+				cube.rotation.y -= gspeed.speedR;
+                cube1.rotation.z -= gspeed.speedG;
+                cube1.rotation.x += gspeed.speedG;
+                cube1.rotation.y += gspeed.speedG;
+    cube2.rotation.x = gspeed.speedB;
+    cube2.rotation.z += gspeed.speedB;
+				cube2.rotation.y += gspeed.speedB;
 
 				renderer.render( scene, camera );
 			};
