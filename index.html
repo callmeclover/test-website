@@ -32,9 +32,9 @@ gui.add(gcon, 'speedR', 0, 1);
 gui.add(gcon, 'speedG', 0, 1);
 gui.add(gcon, 'speedB', 0, 1);
 var folder = gui.addFolder('Position');
-gui.add(folder, 'posR', -1.5, 1.5);
-gui.add(folder, 'posG', -1.5, 1.5);
-gui.add(folder, 'posB', -1.5, 1.5);
+folder.add(gcon, 'posR', -1.5, 1.5);
+folder.add(gcon, 'posG', -1.5, 1.5);
+folder.add(gcon, 'posB', -1.5, 1.5);
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 333000000 } );
