@@ -25,9 +25,12 @@ document.body.appendChild( renderer.domElement );
         speedR:0.005,
         speedG:0.0005,
 	speedB:0.00005,
-	posR:0,
-	posG:0,
-	posB:0
+	xR:0,
+	xG:0,
+	xB:0,
+	yR:0,
+	yG:0,
+	yB:0
 };
 
 const gui = new dat.GUI();
@@ -35,9 +38,14 @@ gui.add(gcon, 'speedR', 0, 1);
 gui.add(gcon, 'speedG', 0, 1);
 gui.add(gcon, 'speedB', 0, 1);
 var folder = gui.addFolder('Position');
-folder.add(gcon, 'posR', -2, 2);
-folder.add(gcon, 'posG', -2, 2);
-folder.add(gcon, 'posB', -2, 2);
+var xfold = folder.addFolder('X Position');
+var yfold = folder.addFolder('Y Position');
+xfold.add(gcon, 'xR', -2, 2);
+xfold.add(gcon, 'xG', -2, 2);
+xfold.add(gcon, 'xB', -2, 2);
+yfold.add(gcon, 'yR', -2, 2);
+yfold.add(gcon, 'yG', -2, 2);
+yfold.add(gcon, 'yB', -2, 2);
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 333000000 } );
@@ -67,10 +75,15 @@ function animate() {
     cube2.rotation.z += gcon.speedB;
 				cube2.rotation.y += gcon.speedB;
 				
-				cube.position.x = gcon.posR;
-				cube1.position.x = gcon.posG;
-				cube2.position.x = gcon.posB;
-
+				cube.position.x = gcon.xR;
+				cube1.position.x = gcon.xG;
+				cube2.position.x = gcon.xB;
+				
+				cube.position.x = gcon.yR;
+				cube1.position.x = gcon.yG;
+				cube2.position.x = gcon.yB;
+				
+				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.render( scene, camera );
 			};
 
