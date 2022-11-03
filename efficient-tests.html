@@ -11,7 +11,12 @@
 <script src="three.js"></script>
   <script src="physijs.js"></script>
 <script src="https://r105.threejsfundamentals.org/threejs/resources/threejs/r105/js/controls/OrbitControls.js"></script>
-	<script type="module">import * as THREE from 'three';</script>
+	<script type="module">
+import * as THREE from 'three';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+</script>
 		<script>
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
