@@ -183,7 +183,7 @@ sxR:0,
 			animate();
 };
 
-const gui = new dat.GUI();
+const gui = new dat.GUI({ load: getPresetJSON()});
 gui.add(gcon, 'speedR', 0, 1);
 gui.add(gcon, 'speedG', 0, 1);
 gui.add(gcon, 'speedB', 0, 1);
