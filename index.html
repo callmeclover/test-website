@@ -46,7 +46,7 @@ sxR:0,
     szR:0,
 	szG:0,
 	szB:0,
-	nAnim: function animate() {
+	nAnim: function() {
 				requestAnimationFrame( animate );
 
 				cube.rotation.x += gcon.speedR;
@@ -88,10 +88,8 @@ sxR:0,
 				
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.render( scene, camera );
-			}
-
-			animate(),
-	altScaleAnim: function animate() {
+			},
+	altScaleAnim: function() {
 				requestAnimationFrame( animate );
 
 				cube.rotation.x += gcon.speedR;
@@ -133,10 +131,8 @@ sxR:0,
 				
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.render( scene, camera );
-			}
-
-			animate(),
-	altPositionAnim: function animate() {
+			},
+	altPositionAnim: function() {
 				requestAnimationFrame( animate );
 
 				cube.rotation.x += gcon.speedR;
@@ -179,8 +175,6 @@ sxR:0,
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.render( scene, camera );
 			}
-
-			animate()
 };
 
 const gui = new dat.GUI({ load: getPresetJSON()});
