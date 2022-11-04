@@ -22,6 +22,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+const controls = new OrbitControls( camera, renderer.domElement );
+
  gcon = {
         speedR:0.005,
         speedG:0.0005,
@@ -93,6 +95,8 @@ function animate() {
     				cube.position.z = gcon.zR;
 				cube1.position.z = gcon.zG;
 				cube2.position.z = gcon.zB;
+
+				controls.update();
 				
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.render( scene, camera );
