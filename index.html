@@ -45,136 +45,7 @@ sxR:1,
 	syB:1,
     szR:1,
 	szG:1,
-	szB:1,
-	nAnim: function() {
-				requestAnimationFrame( animate );
-
-				cube.rotation.x += gcon.speedR;
-                cube.rotation.z += gcon.speedR;
-				cube.rotation.y -= gcon.speedR;
-                cube1.rotation.z -= gcon.speedG;
-                cube1.rotation.x += gcon.speedG;
-                cube1.rotation.y += gcon.speedG;
-    cube2.rotation.x = gcon.speedB;
-    cube2.rotation.z += gcon.speedB;
-				cube2.rotation.y += gcon.speedB;
-				
-				cube.position.x = gcon.xR;
-				cube1.position.x = gcon.xG;
-				cube2.position.x = gcon.xB;
-				
-				cube.position.y = gcon.yR;
-				cube1.position.y = gcon.yG;
-				cube2.position.y = gcon.yB;
-
-    				cube.position.z = gcon.zR;
-				cube1.position.z = gcon.zG;
-				cube2.position.z = gcon.zB;
-
-
-				cube.scale.x = gcon.sxR;
-				cube1.scale.x = gcon.sxG;
-				cube2.scale.x = gcon.sxB;
-				
-				cube.scale.y = gcon.syR;
-				cube1.scale.y = gcon.syG;
-				cube2.scale.y = gcon.syB;
-
-    				cube.scale.z = gcon.szR;
-				cube1.scale.z = gcon.szG;
-				cube2.scale.z = gcon.szB;
-
-				controls.update();
-				
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.render( scene, camera );
-			},
-	altScaleAnim: function() {
-				requestAnimationFrame( animate );
-
-				cube.rotation.x += gcon.speedR;
-                cube.rotation.z += gcon.speedR;
-				cube.rotation.y -= gcon.speedR;
-                cube1.rotation.z -= gcon.speedG;
-                cube1.rotation.x += gcon.speedG;
-                cube1.rotation.y += gcon.speedG;
-    cube2.rotation.x -= gcon.speedB;
-    cube2.rotation.z += gcon.speedB;
-				cube2.rotation.y += gcon.speedB;
-				
-				cube.position.x = gcon.xR;
-				cube1.position.x = gcon.xG;
-				cube2.position.x = gcon.xB;
-				
-				cube.position.y = gcon.yR;
-				cube1.position.y = gcon.yG;
-				cube2.position.y = gcon.yB;
-
-    				cube.position.z = gcon.zR;
-				cube1.position.z = gcon.zG;
-				cube2.position.z = gcon.zB;
-
-
-				cube.scale.x += gcon.sxR;
-				cube1.scale.x += gcon.sxG;
-				cube2.scale.x += gcon.sxB;
-				
-				cube.scale.y += gcon.syR;
-				cube1.scale.y += gcon.syG;
-				cube2.scale.y += gcon.syB;
-
-    				cube.scale.z += gcon.szR;
-				cube1.scale.z += gcon.szG;
-				cube2.scale.z += gcon.szB;
-
-				controls.update();
-				
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.render( scene, camera );
-			},
-	altPositionAnim: function() {
-				requestAnimationFrame( animate );
-
-				cube.rotation.x += gcon.speedR;
-                cube.rotation.z += gcon.speedR;
-				cube.rotation.y -= gcon.speedR;
-                cube1.rotation.z -= gcon.speedG;
-                cube1.rotation.x += gcon.speedG;
-                cube1.rotation.y += gcon.speedG;
-    cube2.rotation.x = gcon.speedB;
-    cube2.rotation.z += gcon.speedB;
-				cube2.rotation.y += gcon.speedB;
-				
-				cube.position.x += gcon.xR;
-				cube1.position.x += gcon.xG;
-				cube2.position.x += gcon.xB;
-				
-				cube.position.y += gcon.yR;
-				cube1.position.y += gcon.yG;
-				cube2.position.y += gcon.yB;
-
-    				cube.position.z += gcon.zR;
-				cube1.position.z += gcon.zG;
-				cube2.position.z += gcon.zB;
-
-
-				cube.scale.x = gcon.sxR;
-				cube1.scale.x = gcon.sxG;
-				cube2.scale.x = gcon.sxB;
-				
-				cube.scale.y = gcon.syR;
-				cube1.scale.y = gcon.syG;
-				cube2.scale.y = gcon.syB;
-
-    				cube.scale.z = gcon.szR;
-				cube1.scale.z = gcon.szG;
-				cube2.scale.z = gcon.szB;
-
-				controls.update();
-				
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.render( scene, camera );
-			}
+	szB:1
 };
 
 const gui = new dat.GUI();
@@ -189,7 +60,6 @@ var folder1 = gui.addFolder('Scale');
 var sxfold = folder1.addFolder('X Scale');
 var syfold = folder1.addFolder('Y Scale');
 var szfold = folder1.addFolder('Z Scale');
-var folder2 = gui.addFolder('Alt Animate Functions (Possibly destructive!!!)');
 xfold.add(gcon, 'xR', -2, 2);
 xfold.add(gcon, 'xG', -2, 2);
 xfold.add(gcon, 'xB', -2, 2);
@@ -208,8 +78,6 @@ syfold.add(gcon, 'syB', -10, 10);
 szfold.add(gcon, "szR", -10, 10)
 szfold.add(gcon, "szG", -10, 10)
 szfold.add(gcon, "szB", -10, 10)
-folder2.add(gcon, "altPositionAnim")
-folder2.add(gcon, "altScaleAnim")
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 333000000 } );
 			const cube = new THREE.Mesh( geometry, material );
