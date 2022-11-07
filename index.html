@@ -69,6 +69,10 @@ var folder1 = gui.addFolder('Scale');
 var sxfold = folder1.addFolder('X Scale');
 var syfold = folder1.addFolder('Y Scale');
 var szfold = folder1.addFolder('Z Scale');
+const folderC = gui.addFolder('Color')
+let folderCR = folderC.addFolder('r')
+let folderCG = folderC.addFolder('g')
+let folderCB = folderC.addFolder('b')
 xfold.add(gcon, 'xR', -2, 2);
 xfold.add(gcon, 'xG', -2, 2);
 xfold.add(gcon, 'xB', -2, 2);
@@ -87,6 +91,16 @@ syfold.add(gcon, 'syB', -10, 10);
 szfold.add(gcon, "szR", -10, 10)
 szfold.add(gcon, "szG", -10, 10)
 szfold.add(gcon, "szB", -10, 10)
+folderCR.add(gcon, 'rR', 0, 1)
+folderCR.add(gcon, 'rG', 0, 1)
+folderCR.add(gcon, 'rB', 0, 1)
+folderCG.add(gcon, 'gR', 0, 1)
+folderCG.add(gcon, 'gG', 0, 1)
+folderCG.add(gcon, 'gB', 0, 1)
+folderCB.add(gcon, 'bR', 0, 1)
+folderCB.add(gcon, 'bG', 0, 1)
+folderCB.add(gcon, 'bB', 0, 1)
+
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 333000000 } );
 			const cube = new THREE.Mesh( geometry, material );
@@ -140,6 +154,19 @@ function animate() {
 				cube1.scale.z = gcon.szG;
 				cube2.scale.z = gcon.szB;
 
+				cube.material.color.r = gcon.rR;
+				cube1.material.color.r = gcon.rG;
+				cube2.material.color.r = gcon.rB;
+				
+				cube.material.color.g = gcon.gR;
+				cube1.material.color.g = gcon.gG;
+				cube2.material.color.g = gcon.gB;
+
+    				cube.material.color.b = gcon.bR;
+				cube1.material.color.b = gcon.bG;
+				cube2.material.color.b = gcon.bB;
+
+    
 				controls.update();
 				
 				renderer.setSize( window.innerWidth, window.innerHeight );
